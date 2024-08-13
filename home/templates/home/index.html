@@ -2,16 +2,49 @@
 
 {% block styles %}
 <style>
-    
+
 </style>
-{% endblock  %}
+{% endblock %}
 
 {% block content %}
 <h2>TEST</h2>
-{% endblock  %}
+{% endblock %}
 
 {% block scripts %}
 <script>
+    // setTimeout(() => {
+    //     console.log('A');
+    // }, 3000);
+    // setTimeout(() => {
+    //     console.log('B');
+    // }, 2000);
+    // setTimeout(() => {
+    //     console.log('C');
+    // }, 1000);
+
+    const promise = new Promise((resolve, reject) => {
+        // 非同步程式碼放在這執行
+        // 執行成功產生結果(資料)
+        // 執行失敗產生錯誤訊息
+        if (true) {
+            resolve('成功.....')
+        } else { reject('失敗  Error') }
+    })
+
+    // 執行promise
+    // .then() 出現為promise物件
+    promise.then(data => {
+        console.log(data)
+    })
+        .catch(error => {
+            console.log(error)
+        })
+        .finally(() => {
+            console.log('end')
+        })
+
+
+
 
 </script>
-{% endblock  %}
+{% endblock %}
