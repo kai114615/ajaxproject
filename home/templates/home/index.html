@@ -1,50 +1,90 @@
-{% extends "base.html" %}
-
-{% block styles %}
-<style>
-
-</style>
-{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block styles %}
+<style></style>
+{% endblock %} {% block content %}
 <h2>TEST</h2>
-{% endblock %}
-
-{% block scripts %}
+{% endblock %} {% block scripts %}
 <script>
-    // setTimeout(() => {
-    //     console.log('A');
-    // }, 3000);
-    // setTimeout(() => {
-    //     console.log('B');
-    // }, 2000);
-    // setTimeout(() => {
-    //     console.log('C');
-    // }, 1000);
+  // setTimeout(() => {
+  //     console.log('A');
+  // }, 3000);
+  // setTimeout(() => {
+  //     console.log('B');
+  // }, 2000);
+  // setTimeout(() => {
+  //     console.log('C');
+  // }, 1000);
 
+  // // 建立promise
+  // const promise = new Promise((resolve, reject) => {
+  //     // 非同步程式碼放在這執行
+  //     // 執行成功產生結果(資料)
+  //     // 執行失敗產生錯誤訊息
+  //     if (true) {
+  //         resolve('成功.....')
+  //     } else { reject('失敗  Error') }
+  // })
+
+  // // 執行promise
+  // // .then() 出現為promise物件
+  // promise.then(data => {
+  //     console.log(data)
+  // })
+  //     .catch(error => {
+  //         console.log(error)
+  //     })
+  //     .finally(() => {
+  //         console.log('end')
+  //     })
+
+  const prineSomething = (data) => {
     const promise = new Promise((resolve, reject) => {
-        // 非同步程式碼放在這執行
-        // 執行成功產生結果(資料)
-        // 執行失敗產生錯誤訊息
-        if (true) {
-            resolve('成功.....')
-        } else { reject('失敗  Error') }
-    })
+      setTimeout(() => {
+        resolve(`${data}1`);
+      }, 1000);
+    });
+    return promise;
+  };
 
-    // 執行promise
-    // .then() 出現為promise物件
-    promise.then(data => {
-        console.log(data)
-    })
-        .catch(error => {
-            console.log(error)
-        })
-        .finally(() => {
-            console.log('end')
-        })
+  // console.log(prineSomething('A'))           // 印出promise 物件
+  // prineSomething('A').then(data => {
+  //     console.log(data)
+  //     return prineSomething(`${data}B`)
+  // }).then(data => {
+  //     console.log(data)
+  //     return prineSomething(`${data}C`)
+  // }).then(data => {
+  //     console.log(data)
+  // })
 
+  // 非同步程式碼更簡潔，如同 同步程式碼
+  // async await
+  // async function asyncFunction() {
+  //     let data = await prineSomething("A");
+  //     console.log(data);
+  //     data = await prineSomething(`${data}B`);
+  //     console.log(data);
+  //     data = await prineSomething(`${data}C`);
+  //     console.log(data);
+  //     data = await prineSomething(`${data}D`);
+  //     console.log(data);
+  //     data = await prineSomething(`${data}E`);
+  //     console.log(data);
+  // }
+  // asyncFunction();
 
-
-
+  // IIFE 立即執行函式
+  (async () => {
+    console.log("aa");
+    let data = await prineSomething("A");
+    console.log(data);
+    data = await prineSomething(`${data}B`);
+    console.log(data);
+    data = await prineSomething(`${data}C`);
+    console.log(data);
+    data = await prineSomething(`${data}D`);
+    console.log(data);
+    data = await prineSomething(`${data}E`);
+    console.log(data);
+  })();
 </script>
 {% endblock %}
