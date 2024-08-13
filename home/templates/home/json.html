@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block styles %}
 {% endblock %}
 
@@ -18,7 +20,9 @@
 {% endblock %}
 
 {% block scripts %}
+<script src="{% static 'scripts/travel.js' %}"></script>
 <script>
+    console.log(spots)
     const data_table = document.querySelector('#table1>tbody')
     const emps = [
         { "name": "Tom", "workYears": 3, "salary": 35000 },
